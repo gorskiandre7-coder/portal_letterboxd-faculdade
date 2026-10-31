@@ -1,0 +1,629 @@
+/* COMPORTAMENTO GLOBAL DA PÁGINA */
+html {
+    /* Faz com que os links da barra de navegação deslizem suavemente até à secção de destino, em vez de saltarem instantaneamente */
+    scroll-behavior: smooth;
+}
+
+
+/* ESTRUTURA GERAL E CABEÇALHO */
+
+/* 1. Limita a largura do site e centraliza na tela */
+#container {
+    max-width: 1200px; /* Impede que o site estique ao infinito em monitores grandes */
+    margin: 0 auto; /* O "auto" nas laterais centraliza a caixa perfeitamente */
+    padding: 0 20px;
+}
+
+/* 2. Destaque e centralização do título principal */
+header {
+    text-align: center;
+    padding: 30px 0 10px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 3em;
+    margin: 0;
+    color: #111;
+}
+
+/* 3. Transforma a lista vertical num menu horizontal */
+#andre_menu ul {
+    list-style: none; /* Remove as "bolinhas" padrão do HTML */
+    padding: 0;
+    display: flex; /* Coloca os links lado a lado */
+    justify-content: center; /* Centraliza o menu na tela */
+    gap: 30px; /* Cria espaçamento entre os links */
+    margin-bottom: 40px;
+}
+
+#andre_menu a {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+
+/* 1.ESTRUTURA DOS BOTÕES DE TEMA (Base) */
+
+/* Alinha e espaça os 4 botões no topo da página */
+.andre_botoes_tema {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+/* Formato arredondado, fundo transparente e borda cinza padrão */
+.andre_botoes_tema button {
+    background-color: transparent;
+    color: #888888;
+    border: 2px solid #444444;
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Animação suave ao passar o mouse */
+}
+
+/* Efeito Hover do Tema Padrão (Classic): Letras e bordas escuras */
+.andre_botoes_tema button:hover {
+    border-color: #111111;
+    color: #111111;
+}
+
+
+/* 1.TEMA PRO (Azul) */
+
+/* Fundo principal da página e texto base */
+
+.tema-pro { background-color: #14181c; color: #99aabb; }
+
+/* Agrupa TODAS as caixas (semânticas, lateral, formulário e galeria) para receberem fundo cinza escuro */
+.tema-pro section, .tema-pro article, .tema-pro aside, .tema-pro fieldset, 
+.tema-pro #andre_lateral, .tema-pro .andre_item_galeria, .tema-pro .andre_info_galeria {
+    background-color: #1c2228;
+    color: #c8d4e0;
+    border: 1px solid #2c363f;
+}
+
+/* Agrupa todos os títulos e links para receberem a cor Azul Pro */
+.tema-pro header h1, .tema-pro h2, .tema-pro h3, .tema-pro .andre_info_galeria h4, .tema-pro a {
+    color: #40bcf4;
+}
+
+/* Agrupa todos os textos secundários (parágrafos, labels do formulário) para ficarem claros e legíveis */
+.tema-pro header p, .tema-pro label, .tema-pro legend, .tema-pro .andre_info_galeria p {
+    color: #c8d4e0;
+}
+
+/* Botão principal de submeter crítica (Fundo azul, texto escuro) */
+.tema-pro .andre_botao { background-color: #40bcf4; color: #111111; }
+.tema-pro .andre_botao:hover { background-color: #2b98ca; } /* Azul mais escuro no hover */
+
+/* Efeito Hover claro nos botões de tema lá do topo */
+.tema-pro .andre_botoes_tema button:hover { border-color: #ffffff; color: #ffffff; }
+
+
+/* 2.TEMA PATRON (Laranja) */
+
+/* Fundo principal da página e texto base */
+.tema-patron { background-color: #14181c; color: #99aabb; }
+
+/* Agrupa todas as caixas para receberem fundo cinza escuro */
+.tema-patron section, .tema-patron article, .tema-patron aside, .tema-patron fieldset, 
+.tema-patron #andre_lateral, .tema-patron .andre_item_galeria, .tema-patron .andre_info_galeria {
+    background-color: #1c2228;
+    color: #c8d4e0;
+    border: 1px solid #2c363f;
+}
+
+/* Agrupa todos os títulos e links para receberem a cor Laranja Patron */
+.tema-patron header h1, .tema-patron h2, .tema-patron h3, .tema-patron .andre_info_galeria h4, .tema-patron a {
+    color: #ff8000;
+}
+
+/* Agrupa todos os textos secundários para ficarem claros */
+.tema-patron header p, .tema-patron label, .tema-patron legend, .tema-patron .andre_info_galeria p {
+    color: #c8d4e0;
+}
+
+
+/* Botão principal de submeter crítica (Fundo laranja, texto escuro) */
+.tema-patron .andre_botao { background-color: #ff8000; color: #111111; }
+.tema-patron .andre_botao:hover { background-color: #cc6600; } /* Laranja escuro no hover */
+
+/* Efeito Hover claro nos botões de tema lá do topo */
+.tema-patron .andre_botoes_tema button:hover { border-color: #ffffff; color: #ffffff; }
+
+
+
+
+/* 3.TEMA OLED (Preto / Vermelho) */
+
+/* Fundo principal preto absoluto para ecrãs OLED */
+.tema-oled { background-color: #000000; color: #e2d7d7; }
+
+/* Agrupa TODAS as caixas com um preto quase invisível (#0a0a0a) para não sumirem no fundo */
+.tema-oled section, .tema-oled article, .tema-oled aside, .tema-oled fieldset, 
+.tema-oled #andre_lateral, .tema-oled .andre_item_galeria, .tema-oled .andre_info_galeria {
+    background-color: #0a0a0a;
+    color: #e2d7d7;
+    border: 1px solid #222222;
+}
+
+/* Agrupa todos os títulos e links para receberem o teu Vermelho Personalizado */
+
+.tema-oled header h1, .tema-oled h2, .tema-oled h3, .tema-oled .andre_info_galeria h4, .tema-oled a {
+    color: #cf0c0c;
+}
+
+/* Agrupa todos os textos secundários para um cinza claro legível */
+
+.tema-oled header p, .tema-oled label, .tema-oled legend, .tema-oled .andre_info_galeria p {
+    color: #e2d7d7;
+}
+
+/* Botão principal de submeter crítica (Fundo vermelho forte) */
+
+.tema-oled .andre_botao { background-color: #da2323; color: #ffffff; font-weight: bold; }
+.tema-oled .andre_botao:hover { background-color: #7a1111; } /* Vermelho escuro no hover*/
+
+/* Efeito Hover claro nos botões de tema lá do topo */
+
+.tema-oled .andre_botoes_tema button:hover { border-color: #ffffff; color: #ffffff; }
+
+
+
+
+/*BANNER DE DESTAQUE*/
+
+/* 1. Alinha o texto e a imagem lado a lado */
+.andre_banner {
+    display: flex; 
+    align-items: center; /* Centraliza verticalmente o texto com a foto */
+    gap: 40px; /* Espaço de respiro entre o texto e a imagem */
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #f4f4f4; /* Fundo suave para destacar a secção */
+    border-radius: 10px;
+}
+/* 2. Distribuição: texto mais largo, imagem mais estreita e vertical */
+.andre_banner_conteudo {
+    flex: 2; /* O texto passa a ocupar o dobro do espaço da imagem */
+}
+.andre_banner_imagem {
+    flex: 1; /* A imagem fica contida numa coluna mais estreita */
+}
+/* 3. Formato vertical de cartaz de cinema */
+.andre_banner_imagem img {
+    width: 100%;
+    aspect-ratio: 2 / 3; /* Força a proporção vertical clássica (poster) */
+    object-fit: cover; /* Preenche a caixa sem achatar a fotografia */
+    border-radius: 8px;
+}
+/* 4. Limita o crescimento da imagem para reduzir a altura total do banner */
+.andre_banner_imagem {
+    flex: 1;
+    max-width: 320px; /* Trava a largura e, consequentemente, a altura do cartaz */
+}
+/* 5. Ajustes de tipografia para preencher o espaço de forma proporcional */
+.andre_banner_conteudo h2 {
+    font-size: 2.5em; /* Título bem maior para dar destaque */
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.andre_banner_conteudo h3 {
+    font-size: 1.3em;
+    color: #555; /* Um cinza mais suave para o subtítulo */
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.andre_banner_conteudo p {
+    font-size: 1.1em;
+    line-height: 1.6; /* Aumenta o respiro entre as linhas do parágrafo */
+    margin-bottom: 30px;
+}
+
+
+
+
+/*Felipe - Grid A (CARDS POPULARES)*/
+
+/* A caixa "pai" que envolve os 4 filmes */
+.felipe_grid_cards{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top:20px;
+    padding: 20px
+}
+
+.felipe_secao_cards h2{
+    margin-left: 20px;
+}
+/* Estilo básico de cada cartão para ficar com cara de card */
+.felipe_card{
+    background-color:#f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px; /*Bordas arredondadas*/
+    padding: 15px;
+    text-align: center;
+}
+/* Ajuste da imagem do cartaz para não vazar do cartão */
+.felipe_poster {
+    width: 100%; /* Faz a imagem ocupar toda a largura disponível dentro do cartão */
+    aspect-ratio: 11/ 16; /* Força a proporção exata de tela widescreen (retangular) */
+    object-fit: cover; /* Recorta a imagem automaticamente para preencher o espaço, sem a esmagar ou distorcer */
+    border-radius: 4px; /* Arredonda ligeiramente os cantos da foto para um visual mais suave */
+}
+
+
+
+/*André: Grid B (Galeria e Barra Lateral)*/
+.andre_conteudo_principal h2, p{
+    margin-left: 20px;
+}
+
+/* O contentor "pai" que divide a tela na proporção 2 para 1 */
+.andre_layout_misto{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    margin-top: 40px; /* Empurra a secção para baixo para não colar nos cards do Felipe */
+}
+
+/* 2. Grid interno para a galeria (coloca as 4 fotos clássicas numa grelha 2x2) */
+.andre_galeria_grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-left: 20px;
+}
+
+/* 3. Estrutura do cartão da galeria (figure) */
+.andre_item_galeria {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 4. Ajuste do cartaz de cinema */
+.andre_item_galeria img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* 5. Tipografia do título e da sinopse */
+.andre_info_galeria h4 {
+    margin: 0;
+    font-size: 1.1em;
+    color: #111;
+    text-align: center;
+}
+
+.andre_info_galeria p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* 6. Estilo básico para destacar a barra lateral (Aside) */
+#andre_lateral{
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-left: 4px solid #00e054;/* Adiciona uma linha vertical vermelha à esquerda para dar o estilo do Letterboxd */
+}
+
+
+
+
+/*TABELA 7x5 (Ranking)*/
+
+.andre_secao_tabela h2, p{
+    margin-left: 20px;
+}
+
+/* 1. Estilo geral e remoção de espaços duplos */
+.andre_tabela{
+    width: 100%;
+    border-collapse: collapse;/* Essencial: une as bordas das células numa linha contínua */
+    margin-top: 20px;
+}
+
+/* 2. Espaçamento e alinhamento das células */
+.andre_tabela th, .andre_tabela td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;/* Linha divisória horizontal entre os filmes */
+}
+
+/* 3. Destaque do cabeçalho (thead) */
+.andre_tabela th {
+    background-color: #405466;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* 4. Efeito zebrado nas linhas de dados (tbody) */
+.andre_tabela tbody tr:nth-child(even){
+    background-color: #f9f9f9;/* Pinta apenas as linhas pares com um cinza muito claro */
+}
+
+/* 5. Efeito interativo ao passar o mouse */
+.andre_tabela tbody tr:hover {
+    background-color: #eef2f5;
+}
+
+
+/*FORMULÁRIO SEMÂNTICO*/
+
+.andre_secao_form h2, p{
+    margin-left: 20px;
+}
+
+/* 1. Estilo da moldura principal (fieldset) e do seu título (legend) */
+.andre_grupo_form {
+    border: 2px solid #ddd;
+    padding: 25px;
+    border-radius: 8px;
+    background-color: #fcfcfc;
+}
+
+.andre_grupo_form legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #405466;
+    padding: 0 10px;
+}
+
+/* 2. Respiro entre cada pergunta do formulário */
+.andre_campo{
+    margin-bottom: 20px;
+}
+
+/* 3. Coloca os textos (labels) alinhados em cima das caixas de resposta */
+.andre_campo label {
+    display: block; /* Força o texto a ocupar a sua própria linha, empurrando a caixa para baixo */
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* 4. Estilo unificado para todas as caixas de texto, número, seleção e área de crítica */
+.andre_campo input[type="text"],
+.andre_campo input[type="number"],
+.andre_campo select,
+.andre_campo textarea{
+    width: 100%; /* Faz as caixas ocuparem toda a largura da tela/container */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;/* Puxa a mesma fonte geral do site */
+    box-sizing: border-box;/* Impede que o padding quebre a largura de 100% */
+}
+
+/* 5. Tratamento especial para os botões radio (cinema vs streaming) não quebrarem a linha */
+.andre_opcoes_radio label{
+    display: inline-block;/* Mantém as opções lado a lado, ao contrário das outras labels */
+    margin-right: 20px;
+    font-weight: normal;
+}
+
+/* 6. Botão de Publicar Crítica (com o verde clássico de sucesso do Letterboxd) */
+.andre_botao {
+    background-color: #00e054;
+    color: #111;
+    font-weight: bold;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%;
+}
+
+/* Efeito ao passar o mouse por cima do botão */
+.andre_botao:hover {
+    background-color: #00b042;
+}
+
+
+/* 5. TABELAS (Estética Letterboxd para Modos Noturnos) */
+
+/* TEMA PRO (Azul) - Ajuste da Tabela */
+/* Cabeçalho com fundo cinza e linha de destaque azul na base */
+.tema-pro th { background-color: #2c363f; color: #ffffff; border-bottom: 2px solid #40bcf4; }
+/* Linhas ímpares com fundo cinza escuro dos cartões */
+.tema-pro tr:nth-child(odd), .tema-pro tr:nth-child(odd) td { background-color: #1c2228; color: #c8d4e0; }
+/* Linhas pares com a cor de fundo original do site para dar o contraste zebrado */
+.tema-pro tr:nth-child(even), .tema-pro tr:nth-child(even) td { background-color: #14181c; color: #c8d4e0; }
+/* Borda sutil separando os dados */
+.tema-pro td { border-bottom: 1px solid #2c363f; }
+
+
+/* TEMA PATRON (Laranja) - Ajuste da Tabela */
+/* Cabeçalho com fundo cinza e linha de destaque laranja na base */
+.tema-patron th { background-color: #2c363f; color: #ffffff; border-bottom: 2px solid #ff8000; }
+/* Linhas ímpares com fundo cinza escuro dos cartões */
+.tema-patron tr:nth-child(odd), .tema-patron tr:nth-child(odd) td { background-color: #1c2228; color: #c8d4e0; }
+/* Linhas pares com a cor de fundo original do site */
+.tema-patron tr:nth-child(even), .tema-patron tr:nth-child(even) td { background-color: #14181c; color: #c8d4e0; }
+/* Borda sutil separando os dados */
+.tema-patron td { border-bottom: 1px solid #2c363f; }
+
+
+/* TEMA OLED (Preto Absoluto) - Ajuste da Tabela */
+/* Cabeçalho em preto levemente mais claro, com linha de destaque vermelha */
+.tema-oled th { background-color: #111111; color: #ffffff; border-bottom: 2px solid #cf0c0c; }
+/* Linhas ímpares em um tom quase preto (#0a0a0a) */
+.tema-oled tr:nth-child(odd), .tema-oled tr:nth-child(odd) td { background-color: #0a0a0a; color: #e2d7d7; }
+/* Linhas pares em preto puro (#000000) fundindo diretamente com o fundo do site */
+.tema-oled tr:nth-child(even), .tema-oled tr:nth-child(even) td { background-color: #000000; color: #e2d7d7; }
+/* Borda muito sutil (quase invisível) separando os dados */
+.tema-oled td { border-bottom: 1px solid #222222; }
+
+
+
+
+
+/* 6. JANELA MODAL (Pop-up Dinâmico) */
+
+.modal_oculto {
+    display: none; /* Oculta a caixa por defeito */
+}
+
+.modal_ativo {
+    display: flex; /* Exibe a caixa */
+    position: fixed;
+    z-index: 1000; /* Garante que fica por cima de tudo no site */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo negro com 80% de transparência */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_conteudo {
+    background-color: #1c2228;
+    color: #c8d4e0;
+    padding: 30px;
+    border: 1px solid #2c363f;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+}
+
+.modal_fechar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #888888;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal_fechar:hover {
+    color: #ffffff;
+}
+
+
+
+/*  7. CARROSSEL DE IMAGENS (Estilo Netflix + 4 Temas) */
+
+/* Evita que a tela crie barra de rolagem horizontal */
+body {
+    overflow-x: hidden;
+}
+
+/* Espaçamento geral da seção */
+#carrossel_filmes {
+    margin: 40px auto;
+    text-align: center;
+}
+
+/* A janela limitadora de visão que corta o que sai da tela */
+.carrossel_container {
+    position: relative; 
+    width: 100%; 
+    margin: 0 auto;
+    overflow: hidden; 
+    padding: 20px 0; 
+}
+
+/* A faixa estrutural que segura os cartazes e faz a animação */
+.carrossel_track {
+    display: flex; 
+    gap: 30px; 
+    padding: 0 40px; /* Margem interna para o primeiro filme não colar na borda */
+    transition: transform 0.5s ease-in-out; 
+}
+
+/* Padronização das dimensões dos banners */
+.carrossel_track img {
+    width: 350px; 
+    height: 525px; 
+    flex-shrink: 0; 
+    object-fit: cover; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); 
+}
+
+/* Estilização dos botões de avançar e recuar */
+.btn_carrossel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); 
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.9); 
+    color: #ffffff;
+    border: 2px solid #2c363f;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20; 
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease; 
+}
+
+/* Posição dos botões nas margens */
+.prev { left: 10px; }
+.next { right: 10px; }
+
+
+/* INTEGRAÇÃO COM OS 4 TEMAS */
+
+/* TEMA CLASSIC (Padrão: Laranja) */
+#titulo_carrossel {
+    color: #00e054;
+    transition: color 0.3s ease; 
+}
+.btn_carrossel:hover {
+    background-color: #00e054; 
+}
+
+/* TEMA PRO (Exemplo: Azul) */
+body.tema-pro #titulo_carrossel {
+    color: #40bcf4; 
+}
+body.tema-pro .btn_carrossel:hover {
+    background-color: #40bcf4; 
+}
+
+/* TEMA PATRON (Exemplo: Vermelho) */
+body.tema-patron #titulo_carrossel {
+    color: #ff8000; 
+}
+body.tema-patron .btn_carrossel:hover {
+    background-color: #ff8000; 
+}
+
+/* TEMA OLED (Exemplo: Branco ou Verde) */
+body.tema-oled #titulo_carrossel {
+    color: #cf0c0c; 
+}
+body.tema-oled .btn_carrossel:hover {
+    background-color: #cf0c0c; 
+}

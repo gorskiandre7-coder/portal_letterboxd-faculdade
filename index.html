@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>André Fogaça e Felipe Bueno - Letterboxd Cinema</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /*Fonte principal do site */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Cor dos links (um vermelho escuro, estilo Letterboxd)*/
+        a {
+            color: #00e054;
+            text-decoration: none;
+        }
+        /*Sublinhado ao passar o mouse nos links */
+        a:hover {
+            text-decoration: underline;
+        }
+        .andre_banner p {
+            line-height: 30px;
+            font-family: Verdana, sans-serif
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>Proj. LETTERBOXD</h1>
+            <p>Seu diário e catálogo de cinema</p>
+           <div class="andre_botoes_tema">
+                <button type="button" onclick="mudarTema('')">Classic</button>
+                <button type="button" onclick="mudarTema('tema-pro')">Pro</button>
+                <button type="button" onclick="mudarTema('tema-patron')">Patron</button>
+                <button type="button" onclick="mudarTema('tema-oled')">OLED</button>
+            </div>   
+
+        </header>
+        <nav id="andre_menu">
+            <ul>
+                <li><a href="#destaque">Destaques</a></li>
+                <li><a href="#cards">Populares</a></li>
+                <li><a href="#carrossel_filmes">Recomendações</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#top-filmes">Top Avaliados</a></li>
+                <li><a href="#formulario">Nova Crítica</a></li>
+            </ul>
+        </nav>
+        <main>
+            <!-- ÁREA DE DESTAQUE OU BANNER -->
+            <section id="destaque" class="andre_banner">
+                <div class="andre_banner_conteudo">
+                    <h2>Filme em Destaque da Semana</h2>
+                    <h3>You Can See Everything (2026) &bull; A24</h3>
+                    <p>O aclamado meta-documentário dirigido por Nathan Fielder e Lance Oppenheim que retrata os últimos dias de Elizabeth Holmes antes da prisão, borrando as fronteiras entre realidade e encenação.
+                    </p>
+                    <a href="#formulario" class="andre_botao">Avaliar este Filme</a>
+                </div>
+                <div class="andre_banner_imagem">
+                    <!--"alt" serve para mostrar a mensagem quando a foto do banner nao carregar-->
+                    <img src="img/you-can-see-banner.jpg" alt="Pôster oficial de You Can See Everything da A24">
+                </div>
+            </section>
+
+            <!-- ÁREA COM QUATRO CARDS DE CONTEÚDO (Módulo do Felipe) -->
+            <section id="cards" class="felipe_secao_cards">
+                <h2>Filmes Populares Desta Semana</h2>
+                
+                <!-- Este contêiner receberá o Grid A (repeat e fr) no CSS -->
+                <div class="felipe_grid_cards">
+                    
+                    <!-- Card 1: Clayface -->
+                    <article class="felipe_card">
+                        <img src="img/clayfacebanner.jpg" alt="Pôster de Clayface" class="felipe_poster">
+                        <div class="felipe_card_info">
+                            <h4>Clayface</h4>
+                            <p class="felipe_ano">2026 &bull; Suspense / Terror</p>
+                            <p>A sombria transformação e vingança de um ator de teatro no submundo de Gotham.</p>
+                            <span class="felipe_nota">&starf; 4.7 / 5</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 2: Resident Evil -->
+                    <article class="felipe_card">
+                        <img src="img/resident-evil-banner.jpg" alt="Pôster de Resident Evil" class="felipe_poster">
+                        <div class="felipe_card_info">
+                            <h4>Resident Evil</h4>
+                            <p class="felipe_ano">Ação / Terror / Sobrevivência</p>
+                            <p>Uma equipe de elite investiga um complexo biológico e enfrenta surtos mortais.</p>
+                            <span class="felipe_nota">&starf; 4.5 / 5</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 3: Obsession -->
+                    <article class="felipe_card">
+                        <img src="img/obsession-banner.webp" alt="Pôster de Obsession" class="felipe_poster">
+                        <div class="felipe_card_info">
+                            <h4>Obsession</h4>
+                            <p class="felipe_ano">Drama / Mistério</p>
+                            <p>Uma relação intensa e proibida que cruza limites perigosos e afeta vidas inteiras.</p>
+                            <span class="felipe_nota">&starf; 4.3 / 5</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 4: Primetime -->
+                    <article class="felipe_card">
+                        <img src="img/Primetime-banner.jpg" alt="Pôster de Primetime" class="felipe_poster">
+                        <div class="felipe_card_info">
+                            <h4>Primetime</h4>
+                            <p class="felipe_ano">Suspense / Drama</p>
+                            <p>A tensão atinge o pico quando uma invasão toma conta de uma transmissão de TV ao vivo.</p>
+                            <span class="felipe_nota">&starf; 4.6 / 5</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Estrutura do Carrossel de Imagens -->
+
+            <section id="carrossel_filmes">
+                <h2 id="titulo_carrossel" style="margin-bottom: 20px;">RECOMENDAÇÕES</h2>
+                <div class="carrossel_container">
+                    <!-- Botão Recuar -->
+                    <button class="btn_carrossel prev" onclick="moverCarrossel(-1)">&#10094;</button>
+
+                    <!-- Faixa de Imagens -->
+                    <div class="carrossel_track" id="track_imagens">
+                        <img src="carrossel-img/scarface-carrossel.jpg" alt="Scarface">
+                        <img src="carrossel-img/americanx-carrossel.jpg" alt="American History X">
+                        <img src="carrossel-img/bastardos-carrossel.webp" alt="Inglourious Basterds">
+                        <img src="carrossel-img/magonolia-carrossel.jpg" alt="Magnolia">
+                        <img src="carrossel-img/massacre-carrossel.jpg" alt="The Texas Chainsaw Massacre">
+                        <img src="carrossel-img/eyesideshut-carrossel.jpg" alt="Eyes Side Shut">
+                        <img src="carrossel-img/therewill-carrossel.jpg" alt="There Will Be Blood">
+                        <img src="carrossel-img/cidade de deus.jpg" alt="Cidade de Deus">
+                    </div>
+
+                    <!-- Botão Avançar -->
+                    <button class="btn_carrossel next" onclick="moverCarrossel(1)">&#10095;</button>
+                </div>
+            </section>
+
+           <!-- ÁREA PRINCIPAL E ÁREA LATERAL (Contêiner do Grid B) -->
+            <section id="galeria" class="andre_layout_misto">
+                <!-- Área Principal: Galeria de Clássicos do Cinema -->
+                <div class="andre_conteudo_principal">
+                    <h2>Galeria de Clássicos Obrigatórios</h2>
+                    <p>Obras-primas fundamentais que moldaram a história da sétima arte.</p>
+                    
+                    <div class="andre_galeria_grid">
+                        <!-- Cartão 1: O Poderoso Chefão -->
+                        <figure class="andre_item_galeria">
+                            <img src="img/godfather-banner.jpg" alt="Pôster do filme O Poderoso Chefão">
+                            <div class="andre_info_galeria">
+                                <h4>O Poderoso Chefão (1972)</h4>
+                                <button style="margin-top: 30px;" class="andre_botao" onclick="abrirModal('O Poderoso Chefão (1972)', 'O patriarca de uma dinastia do crime organizado transfere o controlo do seu império clandestino para o seu filho relutante.')">Ler Sinopse</button>
+                            </div>
+                        </figure>
+
+                        <!-- Cartão 2: Pulp Fiction -->
+                        <figure class="andre_item_galeria">
+                            <img src="img/pulpfiction.jpg" alt="Pôster do filme Pulp Fiction">
+                            <div class="andre_info_galeria">
+                                <h4>Pulp Fiction (1994)</h4>
+                                <button style="margin-top: 30px;" class="andre_botao" onclick="abrirModal('Pulp Fiction (1994)', 'As vidas de assassinos da máfia, um pugilista e assaltantes entrelaçam-se em histórias intensas de violência e redenção.')">Ler Sinopse</button>
+                            </div>
+                        </figure>
+
+                        <!-- Cartão 3: Matrix -->
+                        <figure class="andre_item_galeria">
+                            <img src="img/matrix.jpg" alt="Pôster do filme Matrix">
+                            <div class="andre_info_galeria">
+                                <h4>Matrix (1999)</h4>
+                                <button style="margin-top: 30px;" class="andre_botao" onclick="abrirModal('Matrix (1999)', 'Um hacker informático descobre a verdadeira natureza da sua realidade e o seu papel numa guerra contra controladores virtuais.')">Ler Sinopse</button>
+                            </div>
+                        </figure>
+
+                        <!-- Cartão 4: Clube da Luta -->
+                        <figure class="andre_item_galeria">
+                            <img src="img/fightclub-banner.jpg" alt="Pôster do filme Clube da Luta">
+                            <div class="andre_info_galeria">
+                                <h4>Clube da Luta (1999)</h4>
+                                <button style="margin-top: 30px;" class="andre_botao" onclick="abrirModal('Clube da Luta (1999)', 'Um trabalhador deprimido e um fabricante de sabonetes formam um clube de combate clandestino que foge totalmente ao controlo.')">Ler Sinopse</button>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- Área Lateral: Elemento Semântico ASIDE -->
+                <aside id="andre_lateral">
+                    <h3>Curiosidades da Semana</h3>
+                    <ul>
+                        <li>O som dos monstros em Resident Evil foi criado misturando sons de animais reais.</li>
+                        <li>Clayface contou com próteses manuais que demoravam 4 horas para aplicar.</li>
+                        <li>Primetime foi filmado em planos contínuos para manter a sensação de transmissão ao vivo.</li>
+                    </ul>
+
+                    <h3>Gêneros Mais Populares</h3>
+                    <p>Terror, Suspense Psicológico e Drama lideram as avaliações deste mês.</p>
+                    <h3>Diretor em Foco</h3>
+                    <p>A comunidade está a debater intensamente as técnicas de filmagem de Lance Oppenheim no documentário de destaque desta semana.</p>
+
+                    <h3>Clássico em Foco</h3>
+                    <p>Pulp Fiction (1994):O filme do Quentin Tarantino custou só 8,5 milhões de dólares, mas estourou e fez mais de 200 milhões no mundo todo, mudando a cara do cinema dos anos 90.</p>
+
+                    <h3>No Radar em 2026</h3>
+                    <p>O meta-documentário "You Can See Everything", produzido pela A24, empregou câmeras ocultas de dimensões tão reduzidas que a própria equipe técnica frequentemente as perdia no set de filmagem.</p>
+
+                    <h3>Curiosidades Sobre os Clássicos</h3>
+                    <ul>
+                        <li>Em "O Poderoso Chefão", aquele gato no colo do Marlon Brando na primeira cena foi achado de rolê pelo estúdio e nem tava no roteiro.</li>
+                        <li>A grana tava tão curta em "Matrix" que as diretoras reaproveitaram cenários do filme "Cidade das Sombras".</li>
+                        <li>Brad Pitt e Edward Norton aprenderam a fazer sabão de verdade para gravar "Clube da Luta".</li>
+                    </ul>
+                    <h3>Impacto Tecnológico</h3>
+                    <p>A produção de <strong>Matrix (1999)</strong> não apenas revolucionou a indústria de efeitos visuais com a introdução da técnica de "bullet time", mas também fomentou debates académicos rigorosos sobre inteligência artificial e realidades simuladas no cinema contemporâneo.</p>
+
+                    <h3>O Custo da Imersão Psicológica</h3>
+                    <p>A atriz Inde Navarret relatou uma profunda inquietação perante a sua própria performance. A entrega exigida pela personagem resultou num processo de imersão tão rigoroso que a própria artista admitiu sentir temor ao assistir ao resultado final, evidenciando a pesada carga emocional inerente aos métodos de atuação contemporâneos.</p>
+                </aside>
+            </section>
+
+            <!-- TABELA 7x5 SEMANTICAMENTE CORRETA: TOP AVALIADOS -->
+            <section id="top-filmes" class="andre_secao_tabela">
+                <h2>Top Filmes Mais Bem Avaliados da Comunidade</h2>
+                <p>Classificação atualizada com base nas notas atribuídas pelos utilizadores.</p>
+
+                <div class="andre_tabela_wrapper">
+                    <table class="andre_tabela">
+                        <!-- Linha 1 do total (Cabeçalho da Tabela) -->
+                        <thead>
+                            <tr>
+                                <th>Posição</th>
+                                <th>Título do Filme</th>
+                                <th>Diretor</th>
+                                <th>Ano</th>
+                                <th>Média</th>
+                            </tr>
+                        </thead>
+                        <!-- Linhas 2 a 7 do total (6 Linhas de Dados) -->
+                        <tbody>
+                            <tr>
+                                <td>#1</td>
+                                <td>Harakiri</td>
+                                <td>Masaki Kobayashi</td>
+                                <td>1962</td>
+                                <td>4.7 / 5</td>
+                            </tr>
+                            <tr>
+                                <td>#2</td>
+                                <td>Vá e Veja</td>
+                                <td>Elem Klimov</td>
+                                <td>1985</td>
+                                <td>4.7 / 5</td>
+                            </tr>
+                            <tr>
+                                <td>#3</td>
+                                <td>12 Homens e Uma Sentença</td>
+                                <td>Sidney Lumet</td>
+                                <td>1957</td>
+                                <td>4.7 / 5</td>
+                            </tr>
+                            <tr>
+                                <td>#4</td>
+                                <td>Os Sete Samurais</td>
+                                <td>Akira Kurosawa</td>
+                                <td>1954</td>
+                                <td>4.7 / 5</td>
+                            </tr>
+                            <tr>
+                                <td>#5</td>
+                                <td>O Poderoso Chefão</td>
+                                <td>Francis Ford Coppola</td>
+                                <td>1972</td>
+                                <td>4.6 / 5</td>
+                            </tr>
+                            <tr>
+                                <td>#6</td>
+                                <td>Parasita</td>
+                                <td>Bong Joon-ho</td>
+                                <td>2019</td>
+                                <td>4.6 / 5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <!-- FORMULÁRIO SEMÂNTICO: CADASTRO DE CRÍTICA -->
+            <section id="formulario" class="andre_secao_form">
+                <h2>Envie sua Crítica de Cinema</h2>
+                <p>Compartilhe sua opinião sobre as produções cinematográficas com a comunidade.</p>
+
+                <!-- Início do formulário -->
+                <form id="andre_form_critica" onsubmit="return validarFormulario()">
+                    
+                    <fieldset class="andre_grupo_form">
+                        <legend>Dados da Avaliação</legend>
+
+                        <!-- Campo 1: Nome do Autor (input text) -->
+                        <div class="andre_campo">
+                            <label for="nome_usuario">Seu Nome:</label>
+                            <input type="text" id="nome_usuario" name="nome_usuario" placeholder="Ex: André Fogaça">
+                        </div>
+
+                        <!-- Campo 2: Título do Filme (input text) -->
+                        <div class="andre_campo">
+                            <label for="titulo_filme">Título do Filme:</label>
+                            <input type="text" id="titulo_filme" name="titulo_filme" placeholder="Ex: Interestelar">
+                        </div>
+
+                        <!-- Campo 3: Ano de Lançamento (input number) -->
+                        <div class="andre_campo">
+                            <label for="ano_filme">Ano de Lançamento:</label>
+                            <input type="number" id="ano_filme" name="ano_filme" placeholder="Ex: 2014" min="1888" max="2026">
+                        </div>
+
+                        <!-- Campo 4: Gênero Principal (select) -->
+                        <div class="andre_campo">
+                            <label for="genero_filme">Gênero Principal:</label>
+                            <select id="genero_filme" name="genero_filme">
+                                <option value="">Selecione um gênero...</option>
+                                <option value="ficcao">Ficção Científica</option>
+                                <option value="drama">Drama</option>
+                                <option value="terror">Terror / Suspense</option>
+                                <option value="acao">Ação / Aventura</option>
+                            </select>
+                        </div>
+
+                        <!-- Campo 5: Onde assistiu (radio) -->
+                        <div class="andre_campo">
+                            <label>Onde você assistiu ao filme?</label>
+                            <div class="andre_opcoes_radio">
+                                <label for="onde_cinema">
+                                    <input type="radio" id="onde_cinema" name="onde_assistiu" value="cinema"> Cinema
+                                </label>
+                                <label for="onde_streaming">
+                                    <input type="radio" id="onde_streaming" name="onde_assistiu" value="streaming"> Streaming / Casa
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Campo 6: Texto da Crítica (textarea) -->
+                        <div class="andre_campo">
+                            <label for="texto_critica">Sua Crítica / Análise:</label>
+                            <textarea id="texto_critica" name="texto_critica" rows="4" placeholder="Escreva o que achou da atuação, direção, fotografia..."></textarea>
+                        </div>
+
+                        <!-- Área para mensagens de erro/sucesso do JavaScript -->
+                        <p id="andre_mensagem_feedback"></p>
+
+                        <!-- Botão de envio -->
+                        <button type="submit" id="andre_btn_enviar" class="andre_botao">Publicar Crítica</button>
+
+                    </fieldset>
+
+                </form>
+            </section>
+        </main>
+        <!--CSS Inline-->
+        <footer style="text-align: center; color: #666;">
+            <!--"&copy é para mostrar o simbolo de copyright"-->
+            <p>&copy; 2026 - Desenvolvido por André Fogaça e Felipe Bueno.</p>
+        </footer>
+    </div>
+    <!--link pro js externo-->
+    <script src="script.js"></script>
+
+    <!-- Estrutura da Janela Modal (Fica oculta até ser chamada pelo JavaScript) -->
+    <div id="janela_modal" class="modal_oculto">
+        <div class="modal_conteudo">
+            <!-- O botão X para fechar -->
+            <span class="modal_fechar" onclick="fecharModal()">&times;</span>
+            <!-- Conteúdo que será trocado dinamicamente pelo JavaScript -->
+            <h3 id="modal_titulo"></h3>
+            <p id="modal_descricao"></p>
+        </div>
+</div>
+</body>
+</html>
